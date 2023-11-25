@@ -24,14 +24,16 @@ while True:
             data = connection.recv(4096)
             data_str = data.decode()
             print("Received", data_str)
-
+            text = fake.sentence()
+            print("Add text:", text)
+            data_str += " " + text
             if data:
-                response = "Processing " + data_str
+                response = "Processing :" + data_str
                 connection.sendall(response.encode())
             else:
                 print("no data from", client_address)
                 break
 
     finally:
-        print("Closing current connection")
+        print("Closing current connection\n")
         connection.close()

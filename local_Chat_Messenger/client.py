@@ -13,9 +13,7 @@ except socket.error as err:
     sys.exit(1)
 
 try:
-    message = input("tweet: ")
-    print(message.encode("utf-8"))
-    print(message)
+    message = input("Please enter :")
     sock.sendall(message.encode("utf-8"))
     sock.settimeout(2)
     try:
