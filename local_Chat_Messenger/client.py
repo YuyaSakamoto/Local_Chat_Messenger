@@ -1,9 +1,10 @@
 import socket
 import sys
+import json
 
 sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-
-server_address = "/tmp/socket_file"
+config = json.load(open("config.json"))
+server_address = open(config["filepath"], "r")
 print(f"conncting to {server_address}")
 
 try:

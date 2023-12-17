@@ -1,10 +1,12 @@
 from faker import Faker
 import socket
 import os
+import json
 
 fake = Faker()
+config = json.load(open("config.json"))
 sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-server_address = "/tmp/socket_file"
+server_address = open(config["filepath"], "r")
 
 try:
     os.unlink(server_address)
